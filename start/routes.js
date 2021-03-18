@@ -16,4 +16,17 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+Route.get('/', () => {
+    return {
+      name: "test-genuino",
+      version: "4.1.0"
+    }
+})
+
+Route.group(() => {
+
+  Route.post('/login', 'Api/AuthController.login')
+  Route.post('/register', 'Api/AuthController.register')
+  Route.get('/user/:userId', 'Api/UserController.getUser')
+
+}).prefix('api/v1')
