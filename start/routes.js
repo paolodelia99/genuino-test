@@ -19,7 +19,7 @@ const Route = use('Route')
 Route.get('/', () => {
     return {
       name: "test-genuino",
-      version: "4.1.0"
+      version: "0.0.1"
     }
 })
 
